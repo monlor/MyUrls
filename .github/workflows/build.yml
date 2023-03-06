@@ -13,6 +13,8 @@ on:
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
 
+concurrency: ci-${{ github.ref }}
+
 env:
   PROJECT_NAME: myurls
   # Use docker.io for Docker Hub if empty
