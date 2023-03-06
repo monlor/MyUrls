@@ -4,15 +4,21 @@
 
 ## Table of Contents
 
+- [MyUrls](#myurls)
+  - [Table of Contents](#table-of-contents)
 - [Update](#update)
 - [Dependencies](#dependencies)
-- [Docker](#Docker)
-- [Install](#install)
-- [Usage](#usage)
-- [API](#api)
-- [Maintainers](#maintainers)
-- [Contributing](#contributing)
-- [License](#license)
+  - [Docker](#docker)
+  - [Deploy Online](#deploy-online)
+    - [Deploy on Railway](#deploy-on-railway)
+      - [部署](#部署)
+      - [添加域名](#添加域名)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [API](#api)
+  - [Maintainers](#maintainers)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 # Update
 
@@ -40,7 +46,7 @@ sudo apt-get install redis-server -y
 现在你可以无需安装其他服务，使用 docker 或 [docker-compose](https://docs.docker.com/compose/install/) 部署本项目。注：请自行修改 .env 中参数。
 
 ```
-docker run -d --restart always --name myurls careywong/myurls:latest -domain example.com -port 8002 -conn 127.0.0.1:6379 -passwd '' -ttl 90
+docker run -d --restart always --name myurls monlor/myurls:main -domain example.com -port 8002 -conn 127.0.0.1:6379 -passwd '' -ttl 90
 ```
 
 ```shell script
