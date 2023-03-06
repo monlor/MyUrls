@@ -72,6 +72,15 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
 
+      - name: Sync README.md to Docker Hub
+        if: steps.check_files.outputs.files_exists == 'true'
+        uses: ms-jpq/sync-dockerhub-readme@v1
+        with:
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ env.DOCKER_USERNAME }}/${{ env.PROJECT_NAME }}
+          readme: "README.md"
+
       - name: Notification
         uses: monlor/bark-action@v3
         if: always()
